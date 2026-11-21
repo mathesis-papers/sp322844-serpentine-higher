@@ -28,9 +28,9 @@
         "name": "Wenlin Zhang"
       }
     ],
-    "concept_doi": null,
+    "concept_doi": "10.5281/zenodo.24404951",
     "current_version": 2,
-    "doi": null,
+    "doi": "10.5281/zenodo.24404952",
     "lean_source": {
       "revision": "d9bb8a406783c5222849b798f3c2ab738f653d75",
       "url": "https://github.com/the-omega-institute/trureturing/blob/d9bb8a406783c5222849b798f3c2ab738f653d75/D5/S3/Quantum/Matrix/SpeziaSerpentineHigherExteriorTrace.lean"

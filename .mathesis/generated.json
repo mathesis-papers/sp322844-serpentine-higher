@@ -19,10 +19,10 @@
   "generator_version": "0.1.0",
   "sha256": {
     "CHANGELOG.md": "edf3b99be7d208b272c5bac94534d0d3a3e61d39bdfedb72d00110f400c9d8b6",
-    "CITATION.cff": "81ab5dab98c08cb3665f4a89d44b348c443eb0050ff23593d0a60c307b176dd6",
+    "CITATION.cff": "7b3bd464ddae6e869fc1f7fb4f311a088ce5d6bf72dea4f73874d579607d8ba6",
     "CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
     "LICENSES/CC-BY-4.0.txt": "58230517b7895aa219ff46a6ed63e67057a1582fb9ea054b16728a8c13525650",
-    "README.md": "307e6b18d38958750da50f9ef38493e2b630afc8915baef6901e95e911ad2fbe",
+    "README.md": "5d3e38d74f3a96d035a32448552316ba265146a9c5e3bfb94925f243bc145862",
     "formalization/nodes.json": "30a375b39c10581b07ca968a5c644fd5ab8260a1cbee7effd7cf4f549272bff9",
     "manuscript/sp322844-serpentine-higher-v2/README.md": "c24eff11d473b0ea53505fb06c8dda45dbf2c3abfe505035d24e05ad7f65bae9",
     "manuscript/sp322844-serpentine-higher-v2/checks.json": "1a5df6a9cc3c7f98284bc00ee6b7a03a31a150d4da2d161dcd9a673051b5bc36",
@@ -30,9 +30,9 @@
     "manuscript/sp322844-serpentine-higher-v2/metadata.json": "3ccb5791f70febe8798d9b69e9c913358a4c3d61d9bee8586148c9e3984a1b4e",
     "manuscript/sp322844-serpentine-higher-v2/note.tex": "2330f75daa39c39db125075550a0ccd4d3523a40b1114bce1af1746eb787d848",
     "manuscript/sp322844-serpentine-higher-v2/verify.py": "1a5f1bd8c58b69d0cc49f63739f6dc297a10247c14e3effec326a8e50b73d7dc",
-    "paper.json": "32b0018079ba1f941e93c9733c04d87d59960dcb0420d9edecc040408e59d4a1",
+    "paper.json": "80be94942235cc0d3dcd256281b9fa20cc0a11555e42ae165d3d20611a288276",
     "paper.pdf": "a8a0bd95a2f979eb2be1ef4f668ca0cf1757f5712f647713210f406d7dac3551",
     "source.archive": "5ab78eeaaa950c63e8688f2ee2e77c172d3fa1e38fd0aba097ca994e44be7719"
   },
-  "snapshot_identity": "8f49a94da8bc2055fc24d39192371fd09423a7523614b1effe0575abc062c598"
+  "snapshot_identity": "5539c7b3a3a834e8f79107bebda111afb7e27f05c74e87403f7481cefa10c671"
 }

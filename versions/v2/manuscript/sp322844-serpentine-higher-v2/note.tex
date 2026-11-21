@@ -1,0 +1,605 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,tabularx,longtable}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\eps}{\varepsilon}
+\title{Rank-two extensions of Spezia's 2018 determinant result:\\
+the two conjectures in OEIS A322844,\\
+Comments (revision 68)}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\
+\small ChronoAI Pte Ltd, Singapore}
+\date{November 5, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Extending Spezia's determinant result (2018), we prove his two conjectures
+in OEIS A322844, Comments, the two statements in the conjectures block
+(revision 68, August 23, 2025): the absolute second exterior trace of
+the serpentine matrix is the stated quartic quasipolynomial, and every
+exterior trace of order greater than two vanishes.
+The matrix has rank exactly two for every size at least two.
+A factorization through a two-dimensional space gives its characteristic
+polynomial, including the sign of the second exterior trace.
+Corollaries give a minimal polynomial, a permanent formula, diagonal sums,
+generating functions and reciprocal sums. We distinguish the exponential
+generating function from a shifted-factorial expression in the source.
+\end{abstract}
+
+\section{The matrix and the two conjectures}
+Spezia's two conjectures in A322844, Comments, revision 68~\cite{s322844},
+are proved below by a rank-two factorization. The earlier determinant
+formula in A322277 was explicitly recorded as proved on December 1,
+2018~\cite{s322277}. It supplies the top exterior trace, but not the
+intermediate orders $3\leq k<n$ or the second-trace formula. Our result
+extends that determinant formula; the existing scalar and sum formulas
+below retain their source attribution.
+
+For $n\geq1$, number rows and columns from $1$ to $n$ and set
+\begin{equation}\label{eq:matrix}
+(M_n)_{ij}=\begin{cases}
+j+n(i-1),&i\text{ odd},\\
+ni-j+1,&i\text{ even}.
+\end{cases}
+\end{equation}
+Thus the first row is $1,\ldots,n$, the second is $2n,\ldots,n+1$,
+and the direction alternates. This is the matrix in A317614 and
+A322277~\cite{s317614,s322277}.
+Write $\eps=n\bmod2$ and define
+\begin{equation}\label{eq:quantities}
+T_n=\frac{n(n^2+\eps)}2,\qquad
+a_n=\frac{n^2}{12}\bigl(3(1+n^2)-2(2+n^2)\eps\bigr)
+=\begin{cases}
+n^2(n^2+1)/4,&n\text{ even},\\
+n^2(n^2-1)/12,&n\text{ odd}.
+\end{cases}
+\end{equation}
+The values of $a_n$ start with $0,5,6,68,50,333$ for $n=1,\ldots,6$,
+as in A322844~\cite{s322844}. Under the heading ``Conjectures: (Start)'',
+the first assertion identifies $a(n)$ as ``the absolute value'' of the
+second exterior trace; the second says the higher trace ``is equal to zero''.
+More precisely, these are
+$|\tr(\bigwedge^2 M_n)|=a_n$ for $n>1$ and
+$\tr(\bigwedge^k M_n)=0$ for $k>2$, respectively.
+The second-trace sequence was introduced on December 28, 2018;
+the higher-trace assertion was added on January 6, 2019, in revision 5.
+Revision 14 (January 31, 2019) grouped the two as conjectures.
+For $k>n$ the exterior space is the zero vector space, whose trace is zero;
+$\bigwedge^0 M_n$ is the identity on a one-dimensional space.
+
+\begin{theorem}\label{thm:main}
+For every integer $n\geq2$, the characteristic polynomial is
+\begin{equation}\label{eq:charpoly}
+\det(xI_n-M_n)=x^{n-2}(x^2-T_nx-a_n).
+\end{equation}
+The matrix $M_n$ has rank two and
+\begin{equation}\label{eq:ext}
+\tr(\textstyle\bigwedge^k M_n)=
+\begin{cases}
+1,&k=0,\\ T_n,&k=1,\\ -a_n,&k=2,\\ 0,&k\geq3.
+\end{cases}
+\end{equation}
+In fact $\bigwedge^k M_n$ is the zero map for every $k\geq3$.
+\end{theorem}
+
+The two conjectures concern traces, rather than the trace of the ordinary
+power $M_n^k$. Equation~\eqref{eq:ext} proves both, and fixes the sign
+hidden by the absolute value in the first one.
+
+\section{A two-dimensional factorization}
+Put
+\[
+u_i=ni-\frac{n-1}{2},\qquad s_i=(-1)^{i+1},\qquad
+w_i=i-\frac{n+1}{2}.
+\]
+Equation~\eqref{eq:matrix} becomes $(M_n)_{ij}=u_i+s_iw_j$.
+Indeed, for odd $i$ this is $ni+j-n$, and for even $i$ it is $ni-j+1$.
+Consequently, over $\mathbb Q$,
+\begin{equation}\label{eq:factor}
+M_n=UV,\qquad
+U=\begin{pmatrix}u_1&s_1\\\vdots&\vdots\\u_n&s_n\end{pmatrix},
+\qquad V=\begin{pmatrix}1&\cdots&1\\w_1&\cdots&w_n\end{pmatrix}.
+\end{equation}
+This already gives $\rank M_n\leq2$: every image vector is a linear
+combination of $u$ and $s$. Any wedge of three or more such vectors is
+zero, proving the last assertion of the theorem.
+
+The needed sums are
+\begin{align*}
+\sum_i w_i&=0,&\sum_i w_i^2&=\frac{n(n^2-1)}{12},\\
+\sum_i s_i&=\eps,&\sum_i w_is_i&=-\frac{n(1-\eps)}2.
+\end{align*}
+For completeness, the first two follow on substituting
+$\sum i=n(n+1)/2$ and $\sum i^2=n(n+1)(2n+1)/6$ into the definition
+of $w_i$. Pairing successive terms gives
+$\sum i s_i=-n/2$ if $n$ is even and $(n+1)/2$ if $n$ is odd;
+subtracting $(n+1)\sum s_i/2$ gives the last sum.
+Since $u_i=nw_i+(n^2+1)/2$, these identities give
+\begin{equation}\label{eq:small}
+B:=VU=\begin{pmatrix}
+ n(n^2+1)/2&\eps\\
+ n^2(n^2-1)/12&-n(1-\eps)/2
+\end{pmatrix}.
+\end{equation}
+In particular $\tr B=T_n$. Its determinant is
+\[
+-\frac{n^2(n^2+1)(1-\eps)}4
+-\frac{\eps n^2(n^2-1)}{12}=-a_n.
+\]
+Both parity cases in~\eqref{eq:quantities} show $a_n>0$ when $n\geq2$.
+Thus $B$ is invertible, so $U$ is injective and $V$ is surjective.
+It follows that $\operatorname{im}(UV)=\operatorname{im}U$ has dimension two.
+
+To obtain the characteristic polynomial without any spectral assumption,
+evaluate the block determinant
+\[
+\det\begin{pmatrix}I_n&U\\tV&I_2\end{pmatrix}
+=\det(I_n-tUV)=\det(I_2-tVU).
+\]
+Eliminating either off-diagonal block by a block triangular matrix of
+determinant one proves both equalities over $\mathbb Q[t]$.
+This is the rectangular determinant identity underlying the usual
+Cauchy--Binet formulations~\cite{knill}.
+Substitute $t=x^{-1}$ in $\mathbb Q(x)$ and multiply by $x^n$;
+equation~\eqref{eq:charpoly} follows from~\eqref{eq:small}.
+
+Finally, in the standard basis indexed by the $k$-subsets of
+$\{1,\ldots,n\}$, the diagonal entries of $\bigwedge^k M_n$ are the
+principal $k\times k$ minors of $M_n$.
+Their sum is the coefficient of $t^k$ in $\det(I_n+tM_n)$:
+in the determinant expansion choose a matrix entry in precisely those
+$k$ rows and an identity entry in the other rows.
+Thus this trace is $(-1)^k$ times the coefficient of $x^{n-k}$
+in~\eqref{eq:charpoly}. This proves~\eqref{eq:ext} for $k\leq n$;
+the zero-space convention covers $k>n$.
+
+For $n=1$, $M_1=(1)$, so the exterior traces are $1,1,0,0,\ldots$.
+For the empty matrix $M_0$, they are $1,0,0,\ldots$.
+These boundary cases also satisfy the higher-order conjecture.
+
+\begin{corollary}\label{cor:spectrum}
+For $n\geq2$, the nonzero eigenvalues are
+$\lambda_\pm=(T_n\pm\sqrt{T_n^2+4a_n})/2$, with
+$\lambda_-<0<\lambda_+$; the remaining $n-2$ eigenvalues are zero.
+The matrix is diagonalizable over $\mathbb R$.
+Its determinant is $-5$ for $n=2$ and zero for $n\geq3$.
+\end{corollary}
+\begin{proof}
+The quadratic in~\eqref{eq:charpoly} has two distinct real roots with
+negative product. Rank two gives a nullspace of dimension $n-2$,
+so the eigenspaces have total dimension $n$. The determinant follows from
+the constant term, or from rank; at $n=2$, $a_2=5$.
+The determinant-zero observation was already recorded by Spezia in
+A322277 (2018)~\cite{s322277}.
+\end{proof}
+
+\begin{corollary}\label{cor:powers}
+For $n=2$ the minimal polynomial of $M_n$ is $x^2-T_nx-a_n$;
+for $n\geq3$ it is $x(x^2-T_nx-a_n)$. In particular,
+\[
+M_n^{r+2}=T_nM_n^{r+1}+a_nM_n^r\qquad(r\geq1).
+\]
+The traces of ordinary powers satisfy the same recurrence for $r\geq1$,
+with $p_1=T_n$ and $p_2=T_n^2+2a_n$.
+\end{corollary}
+\begin{proof}
+The two nonzero eigenvalues are distinct, and zero is an eigenvalue
+exactly when $n\geq3$. The minimal polynomial of a diagonalizable matrix
+is the product of its distinct eigenvalue factors. Multiplication by
+$M_n^{r-1}$ and taking traces gives the assertions; the value of $p_2$
+uses $\lambda_++\lambda_-=T_n$ and $\lambda_+\lambda_-=-a_n$.
+\end{proof}
+
+\begin{corollary}\label{cor:permanent}
+Let $e_k(w)$ be the elementary symmetric polynomial of degree $k$ in
+$w_1,\ldots,w_n$, with $e_0=1$, and let
+$P_n(z)=\prod_{i=1}^n(u_i+s_i z)$. Then the permanent in A322277 is
+\[
+\operatorname{per}M_n=
+\sum_{k=0}^n k!(n-k)!\,e_k(w)\,[z^k]P_n(z).
+\]
+Only even $k$ contribute.
+\end{corollary}
+\begin{proof}
+Expand each permutation product using $M_{ij}=u_i+s_iw_j$.
+Choose $k$ rows for the second summand. For each $k$-subset of columns,
+the assignments contribute $k!(n-k)!$ times its $w$-product.
+Summing the row choices gives $[z^k]P_n$, and the column choices give
+$e_k(w)$. Since the list of $w_i$ is unchanged by negation, its odd
+elementary symmetric functions vanish.
+\end{proof}
+
+\section{Sums in the linked entries}
+The factorization also gives the following identities for $1\leq i,j\leq n$:
+\begin{equation}\label{eq:rowcol}
+\sum_j(M_n)_{ij}=n^2i-\frac{n(n-1)}2,\qquad
+\sum_i(M_n)_{ij}=\frac{n(n^2+1)}2+
+\eps\left(j-\frac{n+1}{2}\right).
+\end{equation}
+They follow by summing $u_i+s_iw_j$ and using the sums above.
+These are the row and column formulas in A241016 and
+A317617~\cite{s241016,s317617}; reversing a row does not change its sum.
+
+For diagonal offset $0\leq k<n$, put $\ell=n-k$ and
+$\delta=\ell\bmod2$. Define
+$D^+_{n,k}=\sum_{i=1}^{\ell}(M_n)_{i,i+k}$ and
+$D^-_{n,k}=\sum_{i=1}^{\ell}(M_n)_{i+k,i}$. Then
+\begin{align}
+D^+_{n,k}&=\frac n4\bigl(2\ell^2+1-(-1)^\ell\bigr),\label{eq:upper}\\
+D^-_{n,k}&=\frac12\bigl(n\ell(n+k)+\ell(1-(-1)^k)
+                   +(-1)^k(n-2k)\delta\bigr).\label{eq:lower}
+\end{align}
+To check these formulas, use
+$\sum_{i=1}^\ell s_i=\delta$ and
+$\sum_{i=1}^\ell i s_i=(-\ell+(2\ell+1)\delta)/2$.
+For the upper diagonal, summation gives
+$\ell(n\ell+1)/2+(-\ell+n\delta)/2
+=n(\ell^2+\delta)/2$.
+For the lower diagonal it gives
+$\ell(n(\ell+2k)+1)/2+
+(-1)^k(-\ell+(2\ell-n)\delta)/2$,
+which is~\eqref{eq:lower}.
+These recover A325516 and A325655~\cite{s325516,s325655}.
+At $k=1$, equation~\eqref{eq:upper} is the formula in
+A323724~\cite{s323724}. At $k=0$, both are $T_n$, the trace A317614.
+With diagonal offsets starting at zero, the first-column identity in
+A325516 therefore reads $D^+_{n,0}=T_n$.
+
+A323723 is the case $k=1$ of~\eqref{eq:lower}~\cite{s323723}.
+Both nearest-diagonal sums are even: for $n=2m$ they equal
+$2m(2m^2-2m+1)$ and $4m^3$, and for $n=2m+1$ they equal
+$2m^2(2m+1)$ and $2m(2m^2+3m+2)$, respectively.
+For the upper sum divided by two, the parity formulas reduce modulo five
+to $m(2m^2-2m+1)$ and $m^2(2m+1)$. For $m=0,1,2,3,4$ their
+residue sets are $\{0,1,4\}$ and $\{0,3,4\}$, so neither has residue
+two. Thus the upper sum never ends in four, as stated in A323724.
+
+The two parity polynomials in~\eqref{eq:quantities} also explain the
+links to the standard polynomial sequences A002415 and
+A037270~\cite{s002415,s037270}:
+$a_n$ is the A002415 value $n^2(n^2-1)/12$ at odd $n$;
+at even $n$, $2a_n=n^2(n^2+1)/2$ is the normal magic-square total.
+These equalities follow directly from the displayed polynomials, not
+from a new assertion about those sequences.
+The rank sequence, including the empty matrix, is $\min(n,2)$, as linked
+from A317614 to A130130~\cite{s130130}. This identifies the sequence;
+the other interpretations of A130130 are separate statements.
+
+\begin{corollary}\label{cor:triangles}
+The row sums $U_n=\sum_{k=0}^{n-1}D^+_{n,k}$ and
+$L_n=\sum_{k=0}^{n-1}D^-_{n,k}$ are
+\begin{align*}
+U_n&=\frac{n^2(n+1)(2n+1)+3n(n+\eps)}{12},\\
+L_n&=\frac{n^2(n^2+1)}2+T_n-U_n.
+\end{align*}
+These are the defining formulas of A325517 and A325656
+(Spezia, 2019)~\cite{s325517,s325656}. Also
+$D^+_{n,n-1}=n$, while $D^-_{n,n-1}$ equals $n^2$ for even $n$
+and $n^2-n+1$ for odd $n$, as in A325657~\cite{s325657}.
+Writing $Q(z)=(1-z)^5(1+z)^2$, one has
+\begin{align*}
+\sum_{n\geq0}U_nz^n&=\frac{z(1+3z+7z^2+3z^3+2z^4)}{Q(z)},\\
+\sum_{n\geq0}L_nz^n&=\frac{z(1+5z+13z^2+9z^3+4z^4)}{Q(z)},\\
+\sum_{n\geq0}L_n\frac{z^n}{n!}
+&=\frac{z}{24}\left(3e^{-z}+(21+78z+54z^2+8z^3)e^z\right).
+\end{align*}
+\end{corollary}
+\begin{proof}
+Sum $D^+_{n,k}=n(\ell^2+(\ell\bmod2))/2$ over $1\leq\ell\leq n$,
+using $\sum\ell^2=n(n+1)(2n+1)/6$ and
+$\sum(\ell\bmod2)=(n+\eps)/2$. The total of all entries is
+$n^2(n^2+1)/2$; adding $T_n$ counts the main diagonal twice and
+gives $U_n+L_n$. The last diagonal has a single entry, read directly
+from~\eqref{eq:matrix}. To obtain the generating functions, apply
+$\Theta=z\,d/dz$ to $(1-z)^{-1}$ and $e^z$ for each polynomial
+in $n$, and replace $z$ by $-z$ for its alternating part.
+For example
+$24L_n=8n^4+6n^3+4n^2+3n-3n(-1)^n$, which gives the last display.
+\end{proof}
+The displayed replacements for the two generating functions of A325656
+use $13z^2$ and $8z^3$, respectively; the source prints the products
+\texttt{13*x*2} and \texttt{8*exp(2*x)*x*3} instead.
+At $n=2$ those literal expressions give $34$ and $10$, respectively,
+rather than $L_2=8$ (using ordinary and exponential coefficients).
+
+\section{Scalar formulas in A322844}
+\begin{corollary}\label{cor:generating}
+Both step-two recurrences in A322844 hold, and
+\[
+\sum_{n\geq0}a_nz^n=
+\frac{5z^2+6z^3+43z^4+20z^5+43z^6+6z^7+5z^8}{(1-z^2)^5}.
+\]
+For $b_m=a_{2m}$ and $c_m=a_{2m+1}$, their ordinary generating functions are
+\[
+\sum b_mz^m=\frac{z(5+43z+43z^2+5z^3)}{(1-z)^5},\qquad
+\sum c_mz^m=\frac{2z(3+10z+3z^2)}{(1-z)^5}.
+\]
+With the convention $F(z)=\sum_{n\geq0}a_nz^n/n!$, the exponential
+generating functions are
+\begin{align}
+F(z)&=\frac{e^z(2z^4+12z^3+15z^2+3z)
++e^{-z}(z^4-6z^3+9z^2-3z)}{12},\label{eq:egf}\\
+\sum b_m\frac{z^m}{m!}&=e^z(4z^4+24z^3+29z^2+5z),\label{eq:evenegf}\\
+\sum c_m\frac{z^m}{m!}&=\frac{e^z}{3}(4z^4+32z^3+57z^2+18z).
+\label{eq:oddegf}
+\end{align}
+\end{corollary}
+\begin{proof}
+The parity polynomials in~\eqref{eq:quantities} have degree four,
+so their fifth differences vanish. Multiplying each ordinary series by
+its displayed denominator then leaves only the listed initial coefficients.
+For the exponential formulas, write
+\[
+a_n=\frac{2n^4+n^2+(-1)^n(n^4+2n^2)}{12},\quad
+b_m=4m^4+m^2,\quad
+c_m=\frac{4m^4+8m^3+5m^2+m}{3}.
+\]
+Apply $\Theta^r e^z=\sum n^r z^n/n!$, and evaluate the alternating
+terms at $-z$. This gives all three formulas.
+\end{proof}
+
+The expression labelled ``E.g.f.'' in A322844 is, instead,
+\begin{equation}\label{eq:shifted}
+\begin{aligned}
+H(z)&=\sum_{n\geq0}a_n\frac{z^n}{(n+2)!},\\
+12z^2H(z)&=e^{-z}(24+21z+9z^2+2z^3+z^4)-60\\
+&\quad+e^z(36-33z+15z^2-4z^3+2z^4).
+\end{aligned}
+\end{equation}
+The singularity at zero is removable. To verify the equality, differentiate
+$z^2H(z)$ twice: the result is \eqref{eq:egf}, and $z^2H(z)$ and its
+first derivative vanish at zero. Thus the constant and linear integration
+terms are fixed. In particular $[z^2]H=5/24$, not $a_2/2!=5/2$;
+\eqref{eq:egf} is the corrected conventional exponential generating function.
+The source's two hyperbolic expressions have the precise interpretations
+\begin{align*}
+\sum b_m\frac{z^m}{(2m)!}
+&=\frac{z(8+z)\cosh\sqrt z+2\sqrt z(1+3z)\sinh\sqrt z}{4},\\
+\sum c_m\frac{z^m}{(2m+1)!}
+&=\frac{6z\cosh\sqrt z+\sqrt z(6+z)\sinh\sqrt z}{12}.
+\end{align*}
+Their power-series expansions contain only integral powers of $z$.
+Expanding the hyperbolic functions proves these two identities
+coefficientwise from $b_m$ and $c_m$; the conventional
+subsequence exponential series are \eqref{eq:evenegf}--\eqref{eq:oddegf}.
+
+\begin{corollary}\label{cor:reciprocal}
+The three reciprocal sums in A322844 are
+\begin{align*}
+\sum_{k\geq1}\frac1{a_{2k}}&=2+\frac{\pi^2}{6}-\pi\coth(\pi/2),\\
+\sum_{k\geq1}\frac1{a_{2k+1}}&=15-\frac{3\pi^2}{2},\\
+\sum_{n\geq2}\frac1{a_n}&=17-\frac{4\pi^2}{3}-\pi\coth(\pi/2).
+\end{align*}
+\end{corollary}
+\begin{proof}
+Direct partial fractions give
+\[
+\frac1{a_{2k}}=\frac1{k^2}-\frac1{k^2+1/4},\qquad
+\frac1{a_{2k+1}}=\frac3{k(k+1)}-\frac{12}{(2k+1)^2}.
+\]
+All series converge absolutely. The partial-fraction expansion
+$\coth z=z^{-1}+2z\sum_{k\geq1}(z^2+\pi^2k^2)^{-1}$
+in DLMF 4.36.3~\cite{dlmf} at $z=\pi/2$ yields
+$\sum(k^2+1/4)^{-1}=\pi\coth(\pi/2)-2$.
+At zero, comparison of the linear coefficient with
+$\coth z=z^{-1}+z/3+O(z^3)$ gives $\sum k^{-2}=\pi^2/6$.
+This coefficient comparison is valid because the series after removing
+the pole converges uniformly on $|z|\leq\pi/2$.
+Hence $\sum_{k\geq1}(2k+1)^{-2}=\pi^2/8-1$;
+the telescoping sum $\sum_{k\geq1}1/(k(k+1))=1$ proves the second
+formula. Adding proves the third.
+\end{proof}
+
+\section{Two linked rank-two families}
+The same reduction proves the characteristic-polynomial formulas recorded
+by Benoit Cloitre (November 9, 2002) and Michael Somos (November 14, 2002)
+in A002415, Comments~\cite{s002415}.
+
+\begin{corollary}\label{cor:linked}
+Put $h_n=n^2(n^2-1)/12$ and $g_n=n^2(n^2+1)/2$. For $n\geq2$, let
+$N^+_{ij}=i+j$ and $N^-_{ij}=i-j$, with $1\leq i,j\leq n$. Then
+\[
+\det(xI-N^+)=x^{n-2}(x^2-n(n+1)x-h_n),\qquad
+\det(xI-N^-)=x^{n-2}(x^2+h_n).
+\]
+Both matrices have rank two, and
+$h_n=\tfrac12\sum_{i,j=1}^n(i-j)^2$ (Bala, 2007, A002415).
+The ordinary and exponential generating functions of $h_n$ are
+\[
+\sum_{n\geq0}h_nz^n=\frac{z^2(1+z)}{(1-z)^5},\qquad
+\sum_{n\geq0}h_n\frac{z^n}{n!}
+=\frac{e^zz^2(6+6z+z^2)}{12}.
+\]
+The reciprocal formulas recorded in A002415 and A037270 are
+\begin{align*}
+\sum_{n\geq2}\frac1{h_n}&=21-2\pi^2,&
+\sum_{n\geq2}\frac{(-1)^n}{h_n}&=\pi^2-9,\\
+\sum_{n\geq1}\frac1{g_n}&=1+\frac{\pi^2}{3}-\pi\coth\pi,&
+\sum_{n\geq1}\frac{(-1)^{n+1}}{g_n}
+&=\pi\operatorname{csch}\pi+\frac{\pi^2}{6}-1.
+\end{align*}
+The nonalternating identities are attributed to Kotesovec (2016 for $h_n$,
+2019 for $g_n$), and the alternating ones to Eldar (2020 for $h_n$,
+2021 for $g_n$), in those records.
+\end{corollary}
+\begin{proof}
+Write $v=(1,\ldots,n)^T$ and let $\mathbf1$ be the all-ones vector.
+The matrices are $v\mathbf1^T\pm\mathbf1v^T$.
+Writing $S_1=\sum i=n(n+1)/2$, $S_2=\sum i^2=n(n+1)(2n+1)/6$,
+the reduced products are
+$\left(\begin{smallmatrix}S_1&n\\ \pm S_2&\pm S_1\end{smallmatrix}\right)$.
+Their determinants are $\mp h_n$ since $nS_2-S_1^2=h_n>0$.
+This proves the polynomial and rank assertions by the same block
+determinant argument. Expanding the squared differences proves Bala's
+identity. Applying $\Theta^4-\Theta^2$ to $(1-z)^{-1}$ and $e^z$
+and dividing by 12 gives the two generating functions.
+
+For reciprocal sums, use
+$h_n^{-1}=12((n^2-1)^{-1}-n^{-2})$ for $n\geq2$ and
+$g_n^{-1}=2(n^{-2}-(n^2+1)^{-1})$.
+Partial fractions give $\sum_{n\geq2}(n^2-1)^{-1}=3/4$ and its
+alternating counterpart $\sum_{n\geq2}(-1)^n(n^2-1)^{-1}=1/4$;
+both follow by shifting $1/(2(n-1))-1/(2(n+1))$.
+The coth expansion gives
+$S(b):=\sum_{n\geq1}(n^2+b^2)^{-1}
+=(\pi b\coth(\pi b)-1)/(2b^2)$.
+Splitting even and odd terms gives the alternating value
+$S(1)-S(1/2)/2=(1-\pi\operatorname{csch}\pi)/2$,
+using $\coth(z/2)=\coth z+\operatorname{csch}z$.
+Together with $\sum(-1)^{n+1}/n^2=\pi^2/12$, these prove all four
+identities. Every rearrangement is justified by absolute convergence.
+\end{proof}
+
+Two indexing or identification points in the linked sources merit precision.
+In A325516, Formula, ``1st column: T(n, 1) = A317614(n)''
+uses $k=1$ where $k=0$ is needed:
+already $D^+_{2,1}=2\ne T_2=4$.
+The Crossrefs section of A317617 calls A074147 ``the elements of the
+antidiagonal'' of $M$. This identification fails at size four.
+Direct substitution into~\eqref{eq:matrix} gives
+\begin{equation}\label{eq:anti}
+(M_n)_{i,n+1-i}=\begin{cases}(n-1)i+1,&i\text{ odd},\\
+(n+1)i-n,&i\text{ even}.
+\end{cases}
+\end{equation}
+For $n=4$ these entries are $(4,6,10,16)$, whereas row four of the
+triangle in A074147 is $(6,8,10,12)$~\cite{s074147}.
+Thus the latter sequence is not the antidiagonal triangle of these matrices.
+
+\section{Coverage and verification}
+``Proved'' below applies to an assertion actually made by the cited source.
+Consequences not asserted there are labelled ``not posed; proved''.
+Dates denote the cited records, not a claim of priority.
+\begingroup\small
+\begin{longtable}{@{}p{0.30\linewidth}p{0.66\linewidth}@{}}\toprule
+Source item & Mathematical coverage\\\midrule
+A322844, Comments, two conjectures (rev.\ 68) & Proved: both quoted conjectures;
+signed second trace and all higher traces
+(Theorem~\ref{thm:main}).\\
+A317614, trace & Reproved; prior formula Spezia (2018): $T_n$.\\
+A322277, determinant & Reproved; prior result Spezia (December 1, 2018).
+It already gives the top exterior trace for $n>2$.\\
+A322277, permanent & Not posed; proved: coefficient formula
+(Corollary~\ref{cor:permanent}); the source defines the permanent sequence.\\
+A241016; A317617 & Reproved; prior formulas Ngaokrajang (2014),
+Lang (2014), and Spezia (2018): \eqref{eq:rowcol}.\\
+A325516; A323724 & Reproved; prior formulas Spezia (2019) and Berselli (2019).
+A325516 first-column index refuted-and-corrected to $k=0$.\\
+A325655; A323723 & Reproved; prior formulas Spezia (2019),
+\eqref{eq:lower}.\\
+A325517; A325656; A325657 & Reproved; prior formulas Spezia (2019):
+diagonal aggregates and last entries (Corollary~\ref{cor:triangles}).
+A325656 literal generating-function products refuted-and-corrected.\\
+A130130 & Not posed there; proved: serpentine rank is this sequence,
+$\min(n,2)$. No assertion about its other interpretations.\\
+A002415; A037270 & Polynomial specializations identified above.
+Reproved; prior matrix formulas Cloitre and Somos (2002), squared-difference
+formula Bala (2007), and reciprocal formulas Kotesovec (2016, 2019),
+Eldar (2020, 2021); Corollary~\ref{cor:linked}.\\
+A317617 link to A074147 & Refuted-and-corrected: direct entry formula
+\eqref{eq:anti} and a size-four counterexample.\\
+A322844, Formula & Proved: parity formulas, recurrences, all three ordinary
+generating functions and reciprocal sums
+(Corollaries~\ref{cor:generating}, \ref{cor:reciprocal}).\\
+A322844, single-sequence E.g.f. & Refuted-and-corrected for the conventional
+$n!$ weights; exact shifted weights in \eqref{eq:shifted}.\\
+A322844, parity hyperbolic expressions & Proved with the displayed
+$(2m)!$ and $(2m+1)!$ weights; conventional subsequence series in
+\eqref{eq:evenegf}--\eqref{eq:oddegf}.\\
+Additional spectral claims & Not posed; proved: zero exterior maps,
+diagonalizability, minimal polynomial and ordinary-power recurrence.\\
+Other interpretations and bivariate series in linked entries & Not covered:
+Moessner-type algorithms, unrelated sequence interpretations and bivariate
+generating functions outside the triangular matrix-sum domain.\\\bottomrule
+\end{longtable}
+\endgroup
+
+The arguments above are written proofs for all stated sizes.
+The file \texttt{verify.py} additionally checks every principal minor
+for $0\leq n\leq10$, the complete characteristic polynomial for
+$1\leq n\leq16$, and the factorization, rank and diagonal-sum formulas
+and antidiagonal entry formulas through $n=32$, using exact rational arithmetic.
+Its characteristic-polynomial calculation uses traces of ordinary matrix
+powers and Newton's recurrence, separately from the two-dimensional formula.
+It also checks the permanent formula through size 9, the matrix-power
+identity through size 16, all displayed scalar and aggregate generating
+functions through degree 64, and exact reciprocal partial fractions for
+$1\leq k\leq64$. A bounded numerical sum supplies a separate check of
+the reciprocal constants; their all-size justification is the written proof.
+The two linked matrix families' full characteristic polynomials, ranks
+and squared-difference formula are checked through size 16.
+
+Two pinned Lean declarations express the exterior-trace results using
+characteristic coefficients. In
+\href{https://github.com/the-omega-institute/trureturing/blob/d9bb8a406783c5222849b798f3c2ab738f653d75/D5/S3/Quantum/Matrix/SpeziaSerpentineSecondExteriorTrace.lean}
+{\texttt{SpeziaSerpentineSecondExteriorTrace.lean}},
+\texttt{result} states the absolute second-trace identity for $n>1$,
+and \texttt{charpoly\_factor} gives the rectangular factorization of the
+characteristic polynomial for $n\geq2$.
+Its declaration \texttt{coefficient\_two} gives the signed coefficient
+$-a_n$ for $n\geq2$.
+In
+\href{https://github.com/the-omega-institute/trureturing/blob/d9bb8a406783c5222849b798f3c2ab738f653d75/D5/S3/Quantum/Matrix/SpeziaSerpentineHigherExteriorTrace.lean}
+{\texttt{SpeziaSerpentineHigherExteriorTrace.lean}},
+\texttt{result} states that every exterior trace of order $k>2$ is zero,
+including $k>n$. Both use the integer matrix~\eqref{eq:matrix}, with
+Lean indices shifted by one. The zero-map assertion, diagonalizability
+and row, column and diagonal identities have their written proofs above;
+they are distinct from those two exterior-trace declarations.
+
+\begingroup\footnotesize
+\begin{thebibliography}{18}
+\raggedright
+\setlength{\itemsep}{0pt}
+\bibitem{s322844} S. Spezia, OEIS A322844, December 28, 2018,
+Comments (two conjectures), revision 68 (August 23, 2025),
+\url{https://oeis.org/A322844}.
+History: \url{https://oeis.org/history?seq=A322844}, revisions 2, 5 and 14.
+\bibitem{s317614} S. Spezia, OEIS A317614, August 1, 2018,
+\url{https://oeis.org/A317614}.
+\bibitem{s322277} S. Spezia, OEIS A322277, December 1, 2018,
+\url{https://oeis.org/A322277}.
+\bibitem{s241016} K. Ngaokrajang, OEIS A241016, August 8, 2014,
+\url{https://oeis.org/A241016}.
+\bibitem{s317617} S. Spezia, OEIS A317617, August 1, 2018,
+\url{https://oeis.org/A317617}.
+\bibitem{s325516} S. Spezia, OEIS A325516, May 7, 2019,
+\url{https://oeis.org/A325516}.
+\bibitem{s325655} S. Spezia, OEIS A325655, May 13, 2019,
+\url{https://oeis.org/A325655}.
+\bibitem{s323723} S. Spezia, OEIS A323723, January 25, 2019,
+\url{https://oeis.org/A323723}.
+\bibitem{s323724} S. Spezia, OEIS A323724, January 25, 2019,
+\url{https://oeis.org/A323724}.
+\bibitem{s325517} S. Spezia, OEIS A325517, May 7, 2019,
+\url{https://oeis.org/A325517}.
+\bibitem{s325656} S. Spezia, OEIS A325656, May 13, 2019,
+\url{https://oeis.org/A325656}.
+\bibitem{s325657} S. Spezia, OEIS A325657, May 13, 2019,
+\url{https://oeis.org/A325657}.
+\bibitem{s002415} N. J. A. Sloane, OEIS A002415,
+\url{https://oeis.org/A002415}.
+\bibitem{s037270} A. Gulliver, OEIS A037270,
+\url{https://oeis.org/A037270}.
+\bibitem{s074147} A. Murthy, OEIS A074147, August 28, 2002,
+\url{https://oeis.org/A074147}.
+\bibitem{s130130} P. Curtz, OEIS A130130, August 1, 2007,
+\url{https://oeis.org/A130130}.
+\bibitem{knill} O. Knill, Cauchy--Binet for pseudo-determinants,
+\emph{Linear Algebra Appl.} \textbf{459} (2014), 522--547;
+arXiv:1306.0062v3, \url{https://arxiv.org/abs/1306.0062}.
+\bibitem{dlmf} NIST Digital Library of Mathematical Functions,
+Section 4.36, equation 4.36.3,
+\url{https://dlmf.nist.gov/4.36.E3}.
+\end{thebibliography}
+\endgroup
+\noindent\small\copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under Creative Commons Attribution 4.0 International
+(CC BY 4.0), \url{https://creativecommons.org/licenses/by/4.0/}.
+\end{document}

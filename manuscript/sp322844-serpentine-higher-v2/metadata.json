@@ -1,0 +1,28 @@
+{
+  "id": "sp322844-serpentine-higher",
+  "revision": 2,
+  "problem_ids": ["sp322844-serpentine-higher", "sp322844-serpentine"],
+  "topic": "Both exterior-trace conjectures in OEIS A322844, Comments, conjectures block, revision 68",
+  "title": "Rank-two extensions of Spezia's 2018 determinant result: the two conjectures in OEIS A322844, Comments (revision 68)",
+  "creators": [
+    {"name": "Ma, Haobo", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Zhang, Wenlin", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "Extending Spezia's determinant result (2018), we prove his two conjectures in OEIS A322844, Comments, the two statements in the conjectures block (revision 68, August 23, 2025): the absolute second exterior trace of the serpentine matrix is the stated quartic quasipolynomial, and every exterior trace of order greater than two vanishes. The matrix has rank exactly two for every size at least two. A factorization through a two-dimensional space gives its characteristic polynomial, including the sign of the second exterior trace. Corollaries give a minimal polynomial, a permanent formula, diagonal sums, generating functions and reciprocal sums. We distinguish the exponential generating function from a shifted-factorial expression in the source.",
+  "summary": "Rank two gives the complete characteristic polynomial, signed second exterior trace and zero higher exterior maps, extending Spezia's recorded 2018 determinant formula. Corollaries cover the linked matrix statistics and the scalar generating functions and reciprocal sums, with explicit corrections to factorial weights and printed formulas.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/d9bb8a406783c5222849b798f3c2ab738f653d75/D5/S3/Quantum/Matrix/SpeziaSerpentineHigherExteriorTrace.lean",
+  "posing_source": {"url": "https://oeis.org/A322844", "locator": "Comments, the two assertions between Conjectures: (Start) and (End), revision 68 dated 2025-08-23", "author": "Stefano Spezia", "entry_author_date": "2018-12-28", "second_trace_first_record": {"revision": 2, "date": "2018-12-28"}, "higher_trace_first_record": {"revision": 5, "date": "2019-01-06"}, "conjectures_grouped": {"revision": 14, "date": "2019-01-31"}, "history_url": "https://oeis.org/history?seq=A322844"},
+  "related_prior_result": {"author": "Stefano Spezia", "date": "2018-12-01", "url": "https://oeis.org/A322277", "locator": "Comments, determinant formula; history revision 2", "scope": "Determinant 1 at size 1, -5 at size 2, zero above size 2; the latter is the top-exterior-order subcase, not all intermediate exterior traces."},
+  "verification": {
+    "written_proofs": ["rank-two factorization", "full characteristic polynomial", "all exterior traces", "zero exterior maps above degree two", "spectrum and diagonalizability", "minimal polynomial and ordinary-power recurrence", "symmetric-polynomial permanent formula", "row, column and diagonal sums", "diagonal aggregates and last entries", "corrected antidiagonal entry formula", "step-two recurrences and full/parity ordinary generating functions", "conventional, shifted-factorial and parity-weighted exponential generating functions", "seven reciprocal sums across A322844, A002415 and A037270", "linked i+j and i-j characteristic polynomials and ranks, with prior attribution", "squared-difference identity and scalar generating functions of A002415", "nearest-diagonal parity and superdiagonal final-digit property"],
+    "finite_checks": {"principal_minors_n_max": 10, "characteristic_polynomial_n_max": 16, "factorization_rank_and_sums_n_max": 32, "permanent_n_max": 9, "ordinary_power_recurrence_n_max": 16, "linked_matrix_families_n_max": 16, "generating_function_max_degree": 64, "reciprocal_partial_fraction_k_max": 64, "arithmetic": "exact", "additional_numerical_check": "4096 terms for each reciprocal series, with explicit tail bounds"},
+    "lean_source_commit": "d9bb8a406783c5222849b798f3c2ab738f653d75",
+    "lean_declarations": [
+      {"name": "D5.S3.Quantum.Matrix.SpeziaSerpentineHigherExteriorTrace.result", "statement": "For all natural n and k > 2, the characteristic-coefficient exterior trace is zero."},
+      {"name": "D5.S3.Quantum.Matrix.SpeziaSerpentineSecondExteriorTrace.result", "statement": "For all n > 1, the absolute second characteristic-coefficient exterior trace equals a_n.", "url": "https://github.com/the-omega-institute/trureturing/blob/d9bb8a406783c5222849b798f3c2ab738f653d75/D5/S3/Quantum/Matrix/SpeziaSerpentineSecondExteriorTrace.lean"},
+      {"name": "D5.S3.Quantum.Matrix.SpeziaSerpentineSecondExteriorTrace.charpoly_factor", "statement": "For n >= 2, the characteristic polynomial of the rational image of M_n is x^(n-2) times the characteristic polynomial of V_n U_n."},
+      {"name": "D5.S3.Quantum.Matrix.SpeziaSerpentineSecondExteriorTrace.coefficient_two", "statement": "For n >= 2, the rational image of the characteristic coefficient of degree n-2 is -a_n."}
+    ]
+  }
+}

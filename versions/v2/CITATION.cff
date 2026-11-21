@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it."
+title: "Rank-two extensions of Spezia's 2018 determinant result: the two conjectures in OEIS A322844, Comments (revision 68)"
+authors:
+  - name: "Haobo Ma"
+  - name: "Wenlin Zhang"
+date-released: "2026-11-21"
+version: "2"
+url: "https://mathesis-omega-research.apps.chrono-ai.fun/papers/sp322844-serpentine-higher?version=2"
+license: "CC-BY-4.0"

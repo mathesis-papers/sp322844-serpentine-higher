@@ -23,7 +23,7 @@
     "CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
     "LICENSES/CC-BY-4.0.txt": "58230517b7895aa219ff46a6ed63e67057a1582fb9ea054b16728a8c13525650",
     "README.md": "5d3e38d74f3a96d035a32448552316ba265146a9c5e3bfb94925f243bc145862",
-    "formalization/nodes.json": "30a375b39c10581b07ca968a5c644fd5ab8260a1cbee7effd7cf4f549272bff9",
+    "formalization/nodes.json": "1c8531021ac9451a4e9d53fa41e50c7fa163c0049c7cfa212eb3e5798d78b4b6",
     "manuscript/sp322844-serpentine-higher-v2/README.md": "c24eff11d473b0ea53505fb06c8dda45dbf2c3abfe505035d24e05ad7f65bae9",
     "manuscript/sp322844-serpentine-higher-v2/checks.json": "1a5df6a9cc3c7f98284bc00ee6b7a03a31a150d4da2d161dcd9a673051b5bc36",
     "manuscript/sp322844-serpentine-higher-v2/manifest.json": "833a82027b2c5027e13c34b4fcb4691bdc0f0558b6ac9b84949c1080f3b76a62",
@@ -34,5 +34,5 @@
     "paper.pdf": "a8a0bd95a2f979eb2be1ef4f668ca0cf1757f5712f647713210f406d7dac3551",
     "source.archive": "5ab78eeaaa950c63e8688f2ee2e77c172d3fa1e38fd0aba097ca994e44be7719"
   },
-  "snapshot_identity": "5539c7b3a3a834e8f79107bebda111afb7e27f05c74e87403f7481cefa10c671"
+  "snapshot_identity": "a88f8dfaf4e3d9bfd76056f74520d9574d044276e01f8a72ceb4918f69ef186b"
 }

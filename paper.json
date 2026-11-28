@@ -31,6 +31,7 @@
     "concept_doi": "10.5281/zenodo.24404951",
     "current_version": 2,
     "doi": "10.5281/zenodo.24404952",
+    "kind": "note",
     "lean_source": {
       "revision": "d9bb8a406783c5222849b798f3c2ab738f653d75",
       "url": "https://github.com/the-omega-institute/trureturing/blob/d9bb8a406783c5222849b798f3c2ab738f653d75/D5/S3/Quantum/Matrix/SpeziaSerpentineHigherExteriorTrace.lean"
@@ -55,10 +56,12 @@
     "title": "Rank-two extensions of Spezia's 2018 determinant result: the two conjectures in OEIS A322844, Comments (revision 68)",
     "versions": [
       {
+        "changelog": null,
         "previous_version": null,
         "published_on": "2026-11-21T15:06:16.936418123Z",
         "revision": "2",
-        "version": 2
+        "version": 2,
+        "version_label": null
       }
     ],
     "work": "sp322844-serpentine-higher"
